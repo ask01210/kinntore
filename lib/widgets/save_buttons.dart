@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class SaveButtons extends StatelessWidget{
   final VoidCallback onSave;
+  final String text;
 
  const SaveButtons({
   super.key,
   required this.onSave,
+  required this.text,
  });
 
  @override
@@ -24,7 +26,7 @@ class SaveButtons extends StatelessWidget{
 
         ElevatedButton(
           onPressed: onSave, 
-          child: const Text('保存'),
+          child: Text(text),
         ),
 
       ],

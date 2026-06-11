@@ -20,7 +20,8 @@ class WeightInput extends StatelessWidget{
             controller: controller,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
-            border: OutlineInputBorder()),
+              border: OutlineInputBorder(),
+              hintText: '60'),
           ),
         ),
 

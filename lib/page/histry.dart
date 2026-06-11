@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/record_repository.dart';
 import '../models/record.dart';
 import '../utils/delete.dart';
+import 'save.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
@@ -63,7 +64,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 return ExpansionTile(
 
                   title: Text(
-                    exerciseEntry.key,
+                    exerciseEntry.key,//種目名
                   ),
                   trailing: IconButton(
                         icon: const Icon(Icons.delete),
@@ -94,25 +95,26 @@ class _HistoryPageState extends State<HistoryPage> {
                         '${record.setNum}セット',
                       ),
 
-/*
-TODO画面を押したときに編集画面に移行するようにする。
-それと編集画面をsave.dartを活用してコードを減らす。
+//TODO: 画面を押したときに編集画面に移行するようにする。
+//それと編集画面をsave.dartを活用してコードを減らす。
 
-                      onTap(){
-                        Navigator.push(
-                          context, 
+                      onTap: () async {
+
+                        await Navigator.push(
+                          context,
                           MaterialPageRoute(
-                            builder: (context) => EditRecordPage(
+                            builder: (context) => RecordPage(
+                              exerciseName: record.exerciseName,
+                              selectedDate: record.date,
                               record: record,
                             ),
                           ),
-                        ).then((_){
-                          setState(() {
-                            
-                          });
-                        })
+                        );
+
+                        setState(() {});
                       },
-*/
+
+
 
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
